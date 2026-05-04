@@ -1,0 +1,971 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>XP On — Plano Comercial 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --blue:      #0E1DAA;
+  --blue-dark: #060D4D;
+  --blue-soft: #E8EAFA;
+  --cyan:      #4DA4C7;
+  --cyan-soft: #E5F1F5;
+  --green:     #0F9D58;
+  --green-soft:#E6F4EC;
+  --red:       #D93025;
+  --g900:      #0A0A0A;
+  --g700:      #3F3F46;
+  --g500:      #71717A;
+  --g300:      #C7C7C7;
+  --g200:      #DEDEDE;
+  --g100:      #EEEEEE;
+  --g50:       #F5F5F5;
+  --bg:        #F0F0F5;
+  --surface:   #FFFFFF;
+  --r:         10px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Space Grotesk',sans-serif;background:var(--bg);color:var(--g900);font-size:15px;line-height:1.6;display:flex;min-height:100vh}
+
+/* SIDEBAR */
+#sidebar{width:255px;min-height:100vh;background:var(--blue-dark);display:flex;flex-direction:column;flex-shrink:0;position:sticky;top:0;height:100vh;overflow-y:auto}
+.sb-logo{padding:26px 22px 18px;border-bottom:1px solid rgba(255,255,255,.08)}
+.sb-logo .mark{font-size:20px;font-weight:700;color:#fff;letter-spacing:-.5px}
+.sb-logo .mark span{color:var(--cyan)}
+.sb-logo .sub{font-size:10px;color:rgba(255,255,255,.3);margin-top:3px}
+.sb-group{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:rgba(255,255,255,.25);padding:16px 22px 4px}
+.sb-item{display:flex;align-items:center;gap:9px;padding:9px 22px;cursor:pointer;color:rgba(255,255,255,.55);font-size:13px;font-weight:500;border-left:3px solid transparent;transition:all .15s;user-select:none}
+.sb-item:hover{color:#fff;background:rgba(255,255,255,.05)}
+.sb-item.on{color:#fff;background:rgba(77,164,199,.15);border-left-color:var(--cyan)}
+.sb-dot{width:5px;height:5px;border-radius:50%;background:rgba(255,255,255,.2);flex-shrink:0}
+.sb-item.on .sb-dot{background:var(--cyan)}
+.sb-foot{margin-top:auto;padding:18px 22px;border-top:1px solid rgba(255,255,255,.08);font-size:10px;color:rgba(255,255,255,.2);line-height:1.6}
+
+/* MAIN */
+#main{flex:1;min-width:0}
+.sec{display:none;padding:44px 52px;max-width:1000px;animation:fi .28s ease}
+.sec.on{display:block}
+@keyframes fi{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+
+/* COVER */
+.cover{background:linear-gradient(135deg,var(--blue-dark) 0%,var(--blue) 65%,#1a2fd4 100%);min-height:100vh;padding:60px 52px;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden;max-width:none!important}
+.cover::before{content:'';position:absolute;right:-80px;top:-80px;width:420px;height:420px;border-radius:50%;background:rgba(77,164,199,.07)}
+.cv-ey{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:var(--cyan);margin-bottom:20px}
+.cv-t{font-size:48px;font-weight:700;color:#fff;line-height:1.08;letter-spacing:-1.5px;max-width:680px;margin-bottom:16px}
+.cv-s{font-size:17px;color:rgba(255,255,255,.6);max-width:520px;line-height:1.65;margin-bottom:40px}
+.cv-chips{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:44px}
+.cv-chip{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.14);color:rgba(255,255,255,.8);padding:5px 14px;border-radius:20px;font-size:13px;font-weight:500}
+.cv-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;border-top:1px solid rgba(255,255,255,.1);padding-top:28px}
+.cv-num{font-size:30px;font-weight:700;color:#fff;letter-spacing:-1px}
+.cv-lbl{font-size:11px;color:rgba(255,255,255,.45);margin-top:2px}
+
+/* TYPOGRAPHY */
+.ey{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1.8px;color:var(--cyan);margin-bottom:8px}
+.ttl{font-size:30px;font-weight:700;color:var(--blue-dark);letter-spacing:-.5px;margin-bottom:12px;line-height:1.15}
+.sub{font-size:15.5px;color:var(--g500);max-width:660px;line-height:1.65;margin-bottom:36px}
+.phase-badge{display:inline-flex;align-items:center;gap:8px;background:var(--blue);color:#fff;font-size:12px;font-weight:700;padding:5px 14px;border-radius:20px;margin-bottom:18px;letter-spacing:.3px}
+
+/* CARDS */
+.card{background:var(--surface);border:1px solid var(--g200);border-radius:var(--r);padding:26px;margin-bottom:18px}
+.card-t{font-size:14px;font-weight:700;margin-bottom:10px}
+.card-d{font-size:13.5px;color:var(--g500);line-height:1.65}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:18px}
+.g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-bottom:18px}
+.g4{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:18px}
+
+/* HIGHLIGHT */
+.hl{background:var(--blue-soft);border:1px solid rgba(14,29,170,.13);border-radius:var(--r);padding:22px 26px;margin-bottom:18px}
+.hl.c{background:var(--cyan-soft);border-color:rgba(77,164,199,.22)}
+.hl.g{background:var(--green-soft);border-color:rgba(15,157,88,.2)}
+.hl-lbl{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--blue);margin-bottom:7px}
+.hl.c .hl-lbl{color:#3A8AAF}
+.hl.g .hl-lbl{color:var(--green)}
+
+/* BADGES */
+.bdg{display:inline-block;font-size:11px;font-weight:600;padding:2px 10px;border-radius:20px;letter-spacing:.3px}
+.bdg-b{background:var(--blue-soft);color:var(--blue)}
+.bdg-c{background:var(--cyan-soft);color:#3A8AAF}
+.bdg-g{background:var(--green-soft);color:var(--green)}
+.bdg-r{background:#FBE9E7;color:var(--red)}
+.bdg-x{background:var(--g100);color:var(--g700)}
+
+/* CHECKLIST */
+.chk{list-style:none}
+.chk li{display:flex;align-items:flex-start;gap:9px;padding:7px 0;font-size:13.5px;color:var(--g700);border-bottom:1px solid var(--g100)}
+.chk li:last-child{border-bottom:none}
+.chk li::before{content:'→';color:var(--cyan);font-weight:700;margin-top:1px;flex-shrink:0}
+
+/* INFO ROWS */
+.ir{display:flex;align-items:flex-start;gap:10px;padding:9px 0;border-bottom:1px solid var(--g100);font-size:13px}
+.ir:last-child{border-bottom:none}
+.ir-l{font-weight:600;min-width:145px;color:var(--g700);flex-shrink:0}
+
+/* ACCOUNT CARD */
+.acc-card{background:var(--surface);border:1px solid var(--g200);border-radius:var(--r);overflow:hidden;margin-bottom:18px}
+.acc-head{padding:18px 22px 14px;border-bottom:1px solid var(--g200);display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
+.acc-name{font-size:17px;font-weight:700;color:var(--blue-dark)}
+.acc-role{font-size:12px;color:var(--g500);margin-top:2px}
+.acc-body{padding:18px 22px}
+.acc-tags{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:12px}
+
+/* TIMELINE */
+.tl{position:relative;padding-left:30px}
+.tl::before{content:'';position:absolute;left:8px;top:4px;bottom:4px;width:2px;background:var(--g200)}
+.tl-item{position:relative;margin-bottom:24px}
+.tl-item::before{content:'';position:absolute;left:-25px;top:5px;width:11px;height:11px;border-radius:50%;background:var(--blue);border:2px solid var(--surface);box-shadow:0 0 0 2px var(--blue)}
+.tl-ph{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;color:var(--cyan);margin-bottom:3px}
+.tl-t{font-size:14px;font-weight:700;color:var(--blue-dark);margin-bottom:6px}
+.tl-d{font-size:13px;color:var(--g500);line-height:1.6}
+
+/* TABLE */
+.tbl{width:100%;border-collapse:collapse}
+.tbl th{text-align:left;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--g500);padding:8px 14px;border-bottom:2px solid var(--g200)}
+.tbl td{padding:11px 14px;font-size:13px;border-bottom:1px solid var(--g100);vertical-align:top}
+.tbl tr:last-child td{border-bottom:none}
+.tbl tr:hover td{background:var(--g50)}
+
+/* TOOL ROW */
+.tool{background:var(--surface);border:1px solid var(--g200);border-radius:var(--r);padding:18px;display:flex;gap:14px;margin-bottom:12px}
+.tool-icon{width:38px;height:38px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:17px;flex-shrink:0;background:var(--blue-soft)}
+.tool-n{font-size:14px;font-weight:700;margin-bottom:3px}
+.tool-d{font-size:13px;color:var(--g500);line-height:1.55}
+
+/* AGENDA */
+.ag-item{display:flex;gap:14px;align-items:flex-start;padding:12px 0;border-bottom:1px solid var(--g100)}
+.ag-item:last-child{border-bottom:none}
+.ag-wk{background:var(--blue);color:#fff;font-size:10px;font-weight:700;padding:3px 10px;border-radius:4px;min-width:70px;text-align:center;flex-shrink:0;margin-top:2px}
+
+/* STAT BOX */
+.stat-box{background:var(--surface);border:1px solid var(--g200);border-radius:var(--r);padding:20px;text-align:center}
+.stat-num{font-size:34px;font-weight:700;letter-spacing:-1px;line-height:1}
+.stat-lbl{font-size:12px;color:var(--g500);margin-top:4px}
+
+/* SEGMENT HEADER */
+.seg-head{display:flex;align-items:center;gap:14px;margin-bottom:26px}
+.seg-icon{width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
+.seg-n{font-size:22px;font-weight:700;color:var(--blue-dark);letter-spacing:-.3px}
+.seg-d{font-size:13px;color:var(--g500);margin-top:2px}
+
+/* FLOW */
+.flow{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:12px 0}
+.flow-step{background:var(--blue-soft);border-radius:8px;padding:8px 14px;font-size:13px;font-weight:600;color:var(--blue)}
+.flow-step.end{background:var(--green-soft);color:var(--green)}
+.flow-arr{color:var(--g300);font-size:16px}
+
+/* QUOTE */
+.qt{border-left:4px solid var(--cyan);background:var(--surface);padding:16px 20px;border-radius:0 var(--r) var(--r) 0;font-size:14px;color:var(--g700);line-height:1.65;margin-bottom:18px;font-style:italic}
+
+/* MATRIX */
+.mx-header{display:grid;grid-template-columns:160px 1fr 1fr;gap:10px;margin-bottom:4px}
+.mx-row{display:grid;grid-template-columns:160px 1fr 1fr;gap:10px;margin-bottom:8px}
+.mx-h{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--g500);padding:6px 10px}
+.mx-lbl{background:var(--blue-soft);color:var(--blue);border-radius:8px;padding:10px 12px;font-size:12px;font-weight:600;display:flex;align-items:center}
+.mx-cell{background:var(--surface);border:1px solid var(--g200);border-radius:8px;padding:10px 12px;font-size:13px;color:var(--g700);line-height:1.5}
+
+hr{border:none;border-top:1px solid var(--g200);margin:28px 0}
+</style>
+</head>
+<body>
+
+<nav id="sidebar">
+  <div class="sb-logo">
+    <div class="mark">XP<span>on</span></div>
+    <div class="sub">Plano Comercial 2026</div>
+  </div>
+
+  <div class="sb-group">Visão Geral</div>
+  <div class="sb-item on" data-sec="capa"><span class="sb-dot"></span>Abertura</div>
+  <div class="sb-item" data-sec="cenario"><span class="sb-dot"></span>Cenário Atual</div>
+  <div class="sb-item" data-sec="modelo"><span class="sb-dot"></span>Modelo de Atuação</div>
+
+  <div class="sb-group">Fase 1 — Diagnóstico</div>
+  <div class="sb-item" data-sec="diagnostico"><span class="sb-dot"></span>Diagnóstico Individual</div>
+
+  <div class="sb-group">Segmentos</div>
+  <div class="sb-item" data-sec="privado"><span class="sb-dot"></span>Setor Privado — SP</div>
+  <div class="sb-item" data-sec="publico"><span class="sb-dot"></span>Setor Público — Brasil</div>
+
+  <div class="sb-group">Fase 2 — Estruturação</div>
+  <div class="sb-item" data-sec="playbooks"><span class="sb-dot"></span>Playbooks por Segmento</div>
+  <div class="sb-item" data-sec="ferramentas"><span class="sb-dot"></span>Ferramentaria</div>
+
+  <div class="sb-group">Fase 3 — Rotinas</div>
+  <div class="sb-item" data-sec="rotinas"><span class="sb-dot"></span>Rotinas e Reuniões</div>
+  <div class="sb-item" data-sec="metas"><span class="sb-dot"></span>Metas e KPIs</div>
+
+  <div class="sb-group">Apoio e Integração</div>
+  <div class="sb-item" data-sec="prevendas"><span class="sb-dot"></span>Pré-Vendas</div>
+  <div class="sb-item" data-sec="marketing"><span class="sb-dot"></span>Suporte de Marketing</div>
+  <div class="sb-item" data-sec="agenda"><span class="sb-dot"></span>Agenda — 30 Dias</div>
+
+  <div class="sb-foot">Soluções que evoluem<br>com o seu negócio</div>
+</nav>
+
+<main id="main">
+
+<!-- CAPA -->
+<section class="sec cover on" id="sec-capa">
+  <div>
+    <div class="cv-ey">Plano Estratégico Comercial · 2026</div>
+    <div class="cv-t">Uma nova fase<br>para a XP On.</div>
+    <div class="cv-s">Produto existe. Carteira existe. O que a gente constrói agora é processo. Diagnóstico real, metas co-construídas, acompanhamento estruturado.</div>
+    <div class="cv-chips">
+      <div class="cv-chip">Setor Privado — São Paulo</div>
+      <div class="cv-chip">Setor Público — Nacional</div>
+      <div class="cv-chip">4 Accounts Mapeados</div>
+      <div class="cv-chip">Pré-Vendas Estruturado</div>
+      <div class="cv-chip">Apollo · Asana · CIGAM</div>
+    </div>
+  </div>
+  <div class="cv-stats">
+    <div><div class="cv-num">4</div><div class="cv-lbl">Accounts estruturados</div></div>
+    <div><div class="cv-num">2</div><div class="cv-lbl">Segmentos distintos</div></div>
+    <div><div class="cv-num">30d</div><div class="cv-lbl">Fase de diagnóstico</div></div>
+    <div><div class="cv-num">Q2</div><div class="cv-lbl">Playbooks em produção</div></div>
+  </div>
+</section>
+
+<!-- CENÁRIO -->
+<section class="sec" id="sec-cenario">
+  <div class="ey">Contexto</div>
+  <div class="ttl">Onde a XP On está hoje</div>
+  <div class="sub">Uma leitura honesta do ponto de partida — sem inflar o que existe nem ignorar o que falta.</div>
+
+  <div class="g2">
+    <div class="card">
+      <div class="card-t">✅ O que existe</div>
+      <ul class="chk">
+        <li>Carteira de clientes ativa em dois segmentos</li>
+        <li>4 eixos de produto consolidados</li>
+        <li>Accounts atuando em campo</li>
+        <li>Parceiros estratégicos com co-investimento</li>
+        <li>CIGAM como ERP e sistema de proposta</li>
+        <li>Hub de inteligência e marketing em operação</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-t">⚠️ O que falta estruturar</div>
+      <ul class="chk">
+        <li>Diagnóstico formal de carteira por account</li>
+        <li>Metas construídas a partir do histórico real</li>
+        <li>Playbook diferenciado por segmento</li>
+        <li>Pipeline visível e compartilhado no privado</li>
+        <li>Ferramenta de mapeamento de licitações</li>
+        <li>Rotina de acompanhamento diretoria × accounts</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="hl">
+    <div class="hl-lbl">A leitura central</div>
+    <div style="font-size:15px;color:var(--blue-dark);line-height:1.65">A XP On tem produto bom e market fit estabelecido. O gap não é de produto. É de processo comercial. Não há visibilidade de pipeline, não há ritmo de prospecção, não há metas ancoradas em realidade. Esse plano existe para fechar esse gap — sem cobrar o que não foi dado, mas também sem tolerar indefinição.</div>
+  </div>
+
+  <div class="g3">
+    <div class="stat-box" style="border-top:3px solid var(--blue)">
+      <div class="stat-num" style="color:var(--blue)">2</div>
+      <div class="stat-lbl">Praças ativas</div>
+      <div style="font-size:12px;color:var(--g500);margin-top:6px">São Paulo e Brasil todo</div>
+    </div>
+    <div class="stat-box" style="border-top:3px solid var(--cyan)">
+      <div class="stat-num" style="color:var(--cyan)">4</div>
+      <div class="stat-lbl">Eixos de atuação</div>
+      <div style="font-size:12px;color:var(--g500);margin-top:6px">Colab · Ciber · Infra · Serviços</div>
+    </div>
+    <div class="stat-box" style="border-top:3px solid var(--green)">
+      <div class="stat-num" style="color:var(--green)">0</div>
+      <div class="stat-lbl">Playbooks formais</div>
+      <div style="font-size:12px;color:var(--g500);margin-top:6px">Este plano cria.</div>
+    </div>
+  </div>
+</section>
+
+<!-- MODELO -->
+<section class="sec" id="sec-modelo">
+  <div class="ey">Estrutura</div>
+  <div class="ttl">Como a XP On vai atuar</div>
+  <div class="sub">Dois mundos, dois modelos. Privado e público têm lógicas de venda distintas. Tratar como uma coisa só gera ruído.</div>
+
+  <div class="g2">
+    <div class="card" style="border-top:4px solid var(--blue)">
+      <div class="bdg bdg-b" style="margin-bottom:12px">🏢 Setor Privado</div>
+      <div class="card-t">Praça São Paulo — Rodrigo e Herik</div>
+      <div class="card-d" style="margin-bottom:14px">Carteira XP Privada. Ciclo consultivo, ticket médio-alto, decisão por CTO/CIO.</div>
+      <div class="ir"><span class="ir-l">Ferramentas</span><span>Apollo · Asana · CIGAM</span></div>
+      <div class="ir"><span class="ir-l">Motor de entrada</span><span>Prospecção ativa + rede XP</span></div>
+      <div class="ir"><span class="ir-l">Perfil de conta</span><span>PMEs 100–500 func. — Financeiro, Saúde, Indústria</span></div>
+    </div>
+    <div class="card" style="border-top:4px solid var(--green)">
+      <div class="bdg bdg-g" style="margin-bottom:12px">🏛️ Setor Público</div>
+      <div class="card-t">Nacional — Andreia e Luiz</div>
+      <div class="card-d" style="margin-bottom:14px">Carteiras de órgãos públicos. Ciclo longo, entrada por licitação ou relacionamento institucional.</div>
+      <div class="ir"><span class="ir-l">Ferramentas</span><span>CIGAM + ferramenta licitação (a definir)</span></div>
+      <div class="ir"><span class="ir-l">Motor de entrada</span><span>Network, editais, proposições nos órgãos</span></div>
+      <div class="ir"><span class="ir-l">Perfil de conta</span><span>Federais, estaduais, autarquias, prefeituras</span></div>
+    </div>
+  </div>
+
+  <div class="hl c">
+    <div class="hl-lbl">Princípio de separação</div>
+    <div style="font-size:14px;color:var(--g700);line-height:1.65">Público e privado compartilham os eixos de produto, mas os processos são separados: pipeline, ferramentas, cadência de reunião, modelo de proposta e forma de medir resultado. Unificar o que não deve ser unificado gera confusão para os accounts e para a diretoria.</div>
+  </div>
+</section>
+
+<!-- DIAGNÓSTICO -->
+<section class="sec" id="sec-diagnostico">
+  <div class="phase-badge">📋 Fase 1 — Semanas 1 e 2</div>
+  <div class="ey">Diagnóstico Individual</div>
+  <div class="ttl">Antes de propor, entender</div>
+  <div class="sub">O diagnóstico não é auditoria. É uma conversa estruturada com cada account para entender o que têm, o que veem, o que os trava.</div>
+
+  <div class="qt">"Ao invés de impor metas, entender o cenário passado, atual, e assim construir algo realista. Metas que o time acredita porque ajudou a construir."</div>
+
+  <div class="card">
+    <div class="card-t">Pauta fixa dos 1:1 de diagnóstico</div>
+    <div class="mx-header">
+      <div class="mx-h">Tema</div><div class="mx-h">Perguntas-chave</div><div class="mx-h">Output esperado</div>
+    </div>
+    <div class="mx-row"><div class="mx-lbl">Carteira atual</div><div class="mx-cell">Quais contas estão ativas? Qual o ticket histórico? Quais adormecidas?</div><div class="mx-cell">Mapa de contas por status e potencial</div></div>
+    <div class="mx-row"><div class="mx-lbl">Contas estratégicas</div><div class="mx-cell">Quais 3–5 têm maior potencial de expansão ou fechamento em 90 dias?</div><div class="mx-cell">Lista priorizada de contas-alvo</div></div>
+    <div class="mx-row"><div class="mx-lbl">Segmentos e personas</div><div class="mx-cell">Quais setores o account vê melhor tração? Quem é o decisor?</div><div class="mx-cell">Segmentos prioritários por account</div></div>
+    <div class="mx-row"><div class="mx-lbl">Dores operacionais</div><div class="mx-cell">O que trava hoje? Falta de material? Proposta lenta? Ferramenta ruim?</div><div class="mx-cell">Lista de gaps a resolver</div></div>
+    <div class="mx-row"><div class="mx-lbl">Visão de meta</div><div class="mx-cell">O que seria uma meta realista com base no que você já tem?</div><div class="mx-cell">Baseline para construção de meta</div></div>
+  </div>
+
+  <div class="g2">
+    <div class="hl">
+      <div class="hl-lbl">Para Rodrigo e Herik</div>
+      <div class="card-d">Marketing participa da reunião. Objetivo: entender como a prospecção via Apollo pode complementar a carteira da rede XP Privada em SP.</div>
+    </div>
+    <div class="hl c">
+      <div class="hl-lbl">Para Andreia e Luiz</div>
+      <div class="card-d">Foco em: mapeamento de editais em curso, network ativo nos órgãos, proposições já em andamento. Inventário completo antes de qualquer nova meta.</div>
+    </div>
+  </div>
+</section>
+
+<!-- PRIVADO -->
+<section class="sec" id="sec-privado">
+  <div class="seg-head">
+    <div class="seg-icon" style="background:var(--blue-soft)">🏢</div>
+    <div><div class="seg-n">Setor Privado — São Paulo</div><div class="seg-d">Prospecção ativa + carteira XP Privada + apoio de marketing</div></div>
+  </div>
+
+  <div class="acc-card">
+    <div class="acc-head">
+      <div><div class="acc-name">Rodrigo</div><div class="acc-role">Account — Praça São Paulo</div></div>
+      <div class="bdg bdg-b">SP Privado</div>
+    </div>
+    <div class="acc-body">
+      <div class="acc-tags"><span class="bdg bdg-b">Carteira XP Privada</span><span class="bdg bdg-c">Apollo</span><span class="bdg bdg-x">Asana Pipeline</span></div>
+      <div class="ir"><span class="ir-l">Mercados prioritários</span><span>A definir no diagnóstico — suspeitos: financeiro, tech, serviços corporativos</span></div>
+      <div class="ir"><span class="ir-l">Personas alvo</span><span>CTO, CIO, Gerente de TI em empresas 100–500 funcionários</span></div>
+      <div class="ir"><span class="ir-l">Ferramentas</span><span>Apollo (enriquecimento e cadência) · Asana (pipeline) · CIGAM (proposta)</span></div>
+      <div class="ir"><span class="ir-l">Suporte marketing</span><span>Intel de mercado por setor, materiais por eixo, presença de marca em SP</span></div>
+      <div class="ir"><span class="ir-l">Meta</span><span>Definida após diagnóstico. Base: histórico de pipeline + potencial de expansão</span></div>
+    </div>
+  </div>
+
+  <div class="acc-card">
+    <div class="acc-head">
+      <div><div class="acc-name">Herik</div><div class="acc-role">Account — Praça São Paulo</div></div>
+      <div class="bdg bdg-b">SP Privado</div>
+    </div>
+    <div class="acc-body">
+      <div class="acc-tags"><span class="bdg bdg-b">Carteira XP Privada</span><span class="bdg bdg-c">Apollo</span><span class="bdg bdg-x">Asana Pipeline</span></div>
+      <div class="ir"><span class="ir-l">Mercados prioritários</span><span>A definir no diagnóstico — identificar segmentos com maior histórico de tração</span></div>
+      <div class="ir"><span class="ir-l">Diferencial</span><span>Atuação conjunta com Rodrigo cobre SP sem sobreposição de conta</span></div>
+      <div class="ir"><span class="ir-l">Ferramentas</span><span>Mesmo stack de Rodrigo — Apollo + Asana + CIGAM</span></div>
+      <div class="ir"><span class="ir-l">Foco diagnóstico</span><span>Mapear contas com relacionamento estabelecido vs. oportunidade de prospecção nova</span></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-t">Fluxo de oportunidade — Privado</div>
+    <div class="flow">
+      <div class="flow-step">Geração Apollo</div><div class="flow-arr">→</div>
+      <div class="flow-step" style="background:var(--g50);color:var(--g700)">Qualificação 1:1</div><div class="flow-arr">→</div>
+      <div class="flow-step" style="background:var(--g50);color:var(--g700)">Diagnóstico de conta</div><div class="flow-arr">→</div>
+      <div class="flow-step" style="background:var(--g50);color:var(--g700)">Proposta CIGAM</div><div class="flow-arr">→</div>
+      <div class="flow-step end">Fechamento</div>
+    </div>
+    <div class="card-d">Etapas a partir de "Qualificação" gerenciadas no Asana. Proposta formal emitida no CIGAM para rastreabilidade.</div>
+  </div>
+</section>
+
+<!-- PÚBLICO -->
+<section class="sec" id="sec-publico">
+  <div class="seg-head">
+    <div class="seg-icon" style="background:var(--green-soft)">🏛️</div>
+    <div><div class="seg-n">Setor Público — Brasil</div><div class="seg-d">Network institucional, licitações, contratos, proposições ativas</div></div>
+  </div>
+
+  <div class="acc-card">
+    <div class="acc-head">
+      <div><div class="acc-name">Andreia</div><div class="acc-role">Account — Setor Público Nacional</div></div>
+      <div class="bdg bdg-g">Público</div>
+    </div>
+    <div class="acc-body">
+      <div class="acc-tags"><span class="bdg bdg-g">Carteira Nacional</span><span class="bdg bdg-x">CIGAM</span><span class="bdg bdg-x">Ferramenta Licitação (a definir)</span></div>
+      <div class="ir"><span class="ir-l">Foco</span><span>Expansão de carteira pública nacional — órgãos estratégicos por eixo de produto</span></div>
+      <div class="ir"><span class="ir-l">Estratégia de entrada</span><span>Network ativo nos órgãos, mapeamento de editais, proposições criando oportunidades de contratos</span></div>
+      <div class="ir"><span class="ir-l">Gestão de pipeline</span><span>CIGAM — oportunidades, anotações, emissão de proposta</span></div>
+      <div class="ir"><span class="ir-l">Questão em aberto</span><span>Como vai atuar? Relações? Editais? Network? Definir na reunião de diagnóstico.</span></div>
+      <div class="ir"><span class="ir-l">Playbook</span><span>A construir — diferente por tipo de órgão e por eixo de produto</span></div>
+    </div>
+  </div>
+
+  <div class="acc-card">
+    <div class="acc-head">
+      <div><div class="acc-name">Luiz</div><div class="acc-role">Account — Contas Públicas</div></div>
+      <div class="bdg bdg-g">Público</div>
+    </div>
+    <div class="acc-body">
+      <div class="acc-tags"><span class="bdg bdg-g">Exclusivo Público</span><span class="bdg bdg-x">CIGAM</span><span class="bdg bdg-x">Licitações</span></div>
+      <div class="ir"><span class="ir-l">Especialização</span><span>Atende contas públicas exclusivamente — conhecimento profundo do processo licitatório</span></div>
+      <div class="ir"><span class="ir-l">Ferramentaria atual</span><span>Verificar o que está sendo usado para mapeamento de licitações e prospecções</span></div>
+      <div class="ir"><span class="ir-l">Foco diagnóstico</span><span>Carteira ativa, licitações em andamento, editais monitorados, relacionamentos por órgão</span></div>
+      <div class="ir"><span class="ir-l">Proposta de melhoria</span><span>Avaliar novas ferramentas — Licitanet, PNCP/ComprasNet, BLL, Negócios Públicos</span></div>
+      <div class="ir"><span class="ir-l">KPIs a criar</span><span>Editais monitorados, taxa de participação, conversão proposta/ganho, valor médio de contrato</span></div>
+    </div>
+  </div>
+
+  <div class="hl">
+    <div class="hl-lbl">Ponto de atenção — ferramentaria pública</div>
+    <div style="font-size:14px;color:var(--blue-dark);line-height:1.65">Antes de qualquer meta para o setor público, precisamos saber: qual ferramenta está sendo usada hoje para monitorar editais? A XP On está perdendo oportunidades por não mapear adequadamente? Essa resposta vem das reuniões com Luiz e Andreia.</div>
+  </div>
+</section>
+
+<!-- PLAYBOOKS -->
+<section class="sec" id="sec-playbooks">
+  <div class="phase-badge">📘 Fase 2 — Semanas 3 e 4</div>
+  <div class="ey">Estruturação</div>
+  <div class="ttl">Playbooks por segmento</div>
+  <div class="sub">Um playbook é o roteiro de atuação do account — não um manual de regras. É o caminho mais curto do primeiro contato ao fechamento, por tipo de conta.</div>
+
+  <div class="g2">
+    <div class="card">
+      <div class="bdg bdg-b" style="margin-bottom:12px">Privado</div>
+      <div class="card-t">Playbook Setor Privado</div>
+      <ul class="chk">
+        <li>Definição de ICP (perfil ideal) por segmento SP</li>
+        <li>Cadência Apollo: sequência de toques por cargo e setor</li>
+        <li>Roteiro de primeira reunião por eixo de produto</li>
+        <li>Template de diagnóstico de conta</li>
+        <li>Modelo de proposta consultiva por eixo</li>
+        <li>Etapas do Asana — critérios de passagem entre fases</li>
+        <li>Gatilhos de escalada para diretoria</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="bdg bdg-g" style="margin-bottom:12px">Público</div>
+      <div class="card-t">Playbook Setor Público</div>
+      <ul class="chk">
+        <li>Tipologia: federal vs. estadual vs. municipal</li>
+        <li>Mapeamento de editais — critérios de filtro por eixo</li>
+        <li>Fluxo de network: criar oportunidade antes do edital</li>
+        <li>Checklist de participação em licitação</li>
+        <li>Modelo de proposta para processo licitatório</li>
+        <li>Documentação necessária por tipo de contrato</li>
+        <li>Fluxo de acompanhamento pós-habilitação</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-t">Aresta de atendimento por eixo</div>
+    <table class="tbl" style="margin-top:12px">
+      <thead><tr><th>Eixo</th><th>Dor principal</th><th>Decisor típico</th><th>Ticket estimado</th></tr></thead>
+      <tbody>
+        <tr><td><span class="bdg bdg-c">Colaboração</span></td><td>Ambientes fragmentados, custo alto com múltiplas licenças</td><td>CIO, Gerente de TI, RH</td><td>R$ 30–150k/ano</td></tr>
+        <tr><td><span class="bdg bdg-r">Cibersegurança</span></td><td>Compliance LGPD, exposição a ransomware, falta de visibilidade</td><td>CTO, CISO, Diretoria</td><td>R$ 50–300k/ano</td></tr>
+        <tr><td><span class="bdg bdg-g">Infra e Redes</span></td><td>Rede legada instável, crescimento sem planejamento, OT/IT</td><td>CTO, Infra Lead</td><td>R$ 80–500k (projeto)</td></tr>
+        <tr><td><span class="bdg bdg-b">Serviços</span></td><td>Falta de equipe técnica interna, gestão de fornecedores complexa</td><td>COO, Gerente de Infra</td><td>R$ 20–100k/mês (MSP)</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- FERRAMENTAS -->
+<section class="sec" id="sec-ferramentas">
+  <div class="ey">Stack Comercial</div>
+  <div class="ttl">Ferramentaria</div>
+  <div class="sub">Cada segmento tem seu stack. O público tem caminho próprio até encontrarmos uma solução integrada que sirva aos dois mundos.</div>
+
+  <div class="tool"><div class="tool-icon">🎯</div><div><div class="tool-n">Apollo.io <span class="bdg bdg-b" style="font-size:10px;margin-left:6px">Privado</span></div><div class="tool-d">Prospecção e enriquecimento de leads. Filtro por cargo, setor, porte. Cadências por ICP. Conta: comercial.b2b@xpon.com.br. <strong>Regra crítica:</strong> sempre filtrar por email_status: verified antes de enriquecer — evita desperdício de crédito.</div></div></div>
+  <div class="tool"><div class="tool-icon">📋</div><div><div class="tool-n">Asana <span class="bdg bdg-b" style="font-size:10px;margin-left:6px">Privado</span></div><div class="tool-d">Gestão de pipeline para o setor privado. Cada oportunidade = um card. Etapas: Geração → Qualificação → Diagnóstico → Proposta → Negociação → Fechamento. Integrado ao Hub para visibilidade da diretoria.</div></div></div>
+  <div class="tool"><div class="tool-icon">🏛️</div><div><div class="tool-n">CIGAM <span class="bdg bdg-x" style="font-size:10px;margin-left:6px">Público + Privado</span></div><div class="tool-d">ERP da XP On. Emissão de proposta, OS, faturamento, controle financeiro. Todas as propostas formais passam pelo CIGAM. Setor público opera aqui para oportunidades, anotações e emissão de proposta.</div></div></div>
+  <div class="tool"><div class="tool-icon">🔍</div><div><div class="tool-n">Ferramenta de Licitações <span class="bdg bdg-x" style="font-size:10px;margin-left:6px">A definir</span></div><div class="tool-d">A ser avaliada com Luiz e Andreia. Candidatos: Licitanet, PNCP/ComprasNet, BLL, Negócios Públicos. Critérios: cobertura de órgãos, alertas por palavra-chave. Decisão até final da Fase 2.</div></div></div>
+  <div class="tool"><div class="tool-icon">📊</div><div><div class="tool-n">Hub XP On — Inteligência Comercial</div><div class="tool-d">Dashboard interno com visibilidade de pipeline por account, KPIs em tempo real, histórico de oportunidades. Alimentado pelo Asana (privado) e CIGAM (público).</div></div></div>
+
+  <div class="hl c">
+    <div class="hl-lbl">Sobre a integração público/privado</div>
+    <div style="font-size:14px;color:var(--g700)">Os dois segmentos operam em stacks separados por ora. A convergência para uma solução unificada é um objetivo de médio prazo. Não é prioridade agora — prioridade é cada segmento ter o processo funcionando no seu stack.</div>
+  </div>
+</section>
+
+<!-- ROTINAS -->
+<section class="sec" id="sec-rotinas">
+  <div class="phase-badge">🔄 Fase 3 — Mês 2 em diante</div>
+  <div class="ey">Cadência</div>
+  <div class="ttl">Rotinas e reuniões</div>
+  <div class="sub">Processo sem ritual vira intenção. Cada reunião tem pauta definida, duração limitada e output claro.</div>
+
+  <div class="card">
+    <div class="card-t">Calendário de reuniões recorrentes</div>
+    <table class="tbl" style="margin-top:12px">
+      <thead><tr><th>Reunião</th><th>Frequência</th><th>Participantes</th><th>Duração</th><th>Output</th></tr></thead>
+      <tbody>
+        <tr><td><strong>1:1 Account × Diretoria</strong></td><td>Semanal</td><td>Aguinaldo + cada account (separado)</td><td>30–45 min</td><td>Status de contas quentes, travamentos, decisões rápidas</td></tr>
+        <tr><td><strong>Pipeline Review — Privado</strong></td><td>Quinzenal</td><td>Rodrigo + Herik + Marketing</td><td>60 min</td><td>Revisão do Asana — contas avançando, estagnadas, perdidas</td></tr>
+        <tr><td><strong>Pipeline Review — Público</strong></td><td>Quinzenal</td><td>Andreia + Luiz + Diretoria</td><td>60 min</td><td>Editais em curso, oportunidades no CIGAM, próximos movimentos</td></tr>
+        <tr><td><strong>Revisão Mensal Comercial</strong></td><td>Mensal</td><td>Todos + Diretoria + Marketing</td><td>90 min</td><td>KPIs do mês, comparativo de meta, ajuste de estratégia</td></tr>
+        <tr><td><strong>Alinhamento Mkt × Comercial</strong></td><td>Mensal</td><td>Marketing + accounts por segmento</td><td>45 min</td><td>O que o comercial precisa? O que o marketing entregou?</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="g2">
+    <div class="hl">
+      <div class="hl-lbl">Pauta do 1:1 semanal</div>
+      <ul class="chk" style="margin-top:8px">
+        <li>Contas em negociação ativa — status e próximo passo</li>
+        <li>Travamento que precisa de decisão da diretoria</li>
+        <li>Oportunidade nova que entrou na semana</li>
+        <li>Uma coisa que precisa do marketing esta semana</li>
+      </ul>
+    </div>
+    <div class="hl c">
+      <div class="hl-lbl">O que NÃO fazer nas reuniões</div>
+      <ul class="chk" style="margin-top:8px">
+        <li>Leitura de planilha linha a linha — o Hub faz isso</li>
+        <li>Discussão operacional que cabe num áudio</li>
+        <li>Cobrança de meta sem contexto de obstáculo</li>
+        <li>Reunião sem decisão tomada ao final</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- METAS -->
+<section class="sec" id="sec-metas">
+  <div class="ey">Métricas</div>
+  <div class="ttl">Metas e KPIs</div>
+  <div class="sub">Metas não são impostas. São construídas com cada account após o diagnóstico. O que está aqui são os KPIs de acompanhamento — válidos para todos.</div>
+
+  <div class="hl">
+    <div class="hl-lbl">Princípio de metas</div>
+    <div style="font-size:15px;color:var(--blue-dark);line-height:1.65">Meta realista = histórico de pipeline × potencial da carteira × capacidade do account. A diretoria contribui com a visão de onde chegar. O account contribui com o que é possível. A intersecção é a meta.</div>
+  </div>
+
+  <div class="card" style="margin-bottom:18px">
+    <div class="card-t">KPIs por account — Privado</div>
+    <table class="tbl" style="margin-top:12px">
+      <thead><tr><th>Indicador</th><th>Frequência</th><th>Meta base</th><th>Onde medir</th></tr></thead>
+      <tbody>
+        <tr><td>Novos leads qualificados/mês</td><td>Mensal</td><td>A definir pós-diagnóstico</td><td>Apollo → Asana</td></tr>
+        <tr><td>Oportunidades em fase ativa</td><td>Quinzenal</td><td>Mín. 5 por account</td><td>Asana</td></tr>
+        <tr><td>Propostas emitidas/mês</td><td>Mensal</td><td>A definir pós-diagnóstico</td><td>CIGAM</td></tr>
+        <tr><td>Taxa de conversão proposta/fechamento</td><td>Trimestral</td><td>≥ 20%</td><td>CIGAM</td></tr>
+        <tr><td>Tempo médio de ciclo</td><td>Trimestral</td><td>≤ 45 dias</td><td>Asana + CIGAM</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card">
+    <div class="card-t">KPIs por account — Público</div>
+    <table class="tbl" style="margin-top:12px">
+      <thead><tr><th>Indicador</th><th>Frequência</th><th>Meta base</th><th>Onde medir</th></tr></thead>
+      <tbody>
+        <tr><td>Editais monitorados por semana</td><td>Semanal</td><td>A definir com Luiz após diagnóstico</td><td>Ferramenta licitação</td></tr>
+        <tr><td>Editais em que a XP On participou/mês</td><td>Mensal</td><td>A definir</td><td>CIGAM</td></tr>
+        <tr><td>Taxa de proposta vencedora</td><td>Trimestral</td><td>A definir</td><td>CIGAM</td></tr>
+        <tr><td>Novos órgãos abordados/mês</td><td>Mensal</td><td>A definir com Andreia</td><td>CIGAM</td></tr>
+        <tr><td>Volume de contrato ativo</td><td>Mensal</td><td>A definir com diretoria</td><td>CIGAM</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- MARKETING -->
+<section class="sec" id="sec-marketing">
+  <div class="ey">Integração</div>
+  <div class="ttl">O que o marketing entrega para o comercial</div>
+  <div class="sub">Marketing não é só comunicação. É braço de inteligência, geração de demanda e suporte de proposta. O que cada account precisa, o marketing precisa ter SLA para entregar.</div>
+
+  <div class="g2">
+    <div class="card" style="border-top:3px solid var(--cyan)">
+      <div class="card-t">Inteligência de mercado</div>
+      <ul class="chk">
+        <li>Dados de prospecção Apollo segmentados por setor e SP</li>
+        <li>Briefing de conta antes de reunião estratégica</li>
+        <li>Mapeamento de concorrência por segmento</li>
+        <li>Relatório de tendências por eixo (calendário temático)</li>
+      </ul>
+    </div>
+    <div class="card" style="border-top:3px solid var(--blue)">
+      <div class="card-t">Materiais de proposta</div>
+      <ul class="chk">
+        <li>One-pager por eixo de produto</li>
+        <li>Deck institucional atualizado</li>
+        <li>Cases de sucesso por setor</li>
+        <li>Template de proposta consultiva com identidade XP On</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-t">Suporte por Quarter — Calendário Temático</div>
+    <table class="tbl" style="margin-top:12px">
+      <thead><tr><th>Quarter</th><th>Tema de marketing</th><th>O que o comercial recebe</th></tr></thead>
+      <tbody>
+        <tr><td><span class="bdg bdg-b">Q1</span></td><td>Cibersegurança e Colaboração</td><td>Material de prospecção para segurança e Zoom. Apollo segmentado por decisores de TI.</td></tr>
+        <tr><td><span class="bdg bdg-c">Q2</span></td><td>Infraestrutura e Redes</td><td>Material para indústria, OT/IT convergência. Leads qualificados em Infra via Apollo.</td></tr>
+        <tr><td><span class="bdg bdg-x">Q3</span></td><td>Experiência de Colaboração Híbrida</td><td>Material de expansão de conta — cross-sell para clientes de Infra.</td></tr>
+        <tr><td><span class="bdg bdg-g">Q4</span></td><td>Integração e Parcerias 2027</td><td>Deck de renovação e expansão. Planejamento conjunto para contas estratégicas.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="hl">
+    <div class="hl-lbl">O que o marketing precisa do comercial para funcionar</div>
+    <div style="font-size:14px;color:var(--blue-dark);line-height:1.65">Sem input do comercial, o marketing atira para o escuro. O que precisamos: quais segmentos cada account prioriza neste quarter, quais objeções aparecem no campo, quais materiais faltam. Essa troca acontece na reunião mensal de alinhamento.</div>
+  </div>
+</section>
+
+<!-- AGENDA -->
+<section class="sec" id="sec-agenda">
+  <div class="ey">Execução</div>
+  <div class="ttl">Próximos 30 dias</div>
+  <div class="sub">Agenda concreta. Cada item tem responsável e output esperado. Nada fica em aberto por mais de uma semana sem registro de por quê.</div>
+
+  <div class="card">
+    <div class="card-t">Semana 1 — Diagnóstico começa</div>
+    <div class="ag-item"><div class="ag-wk">Sem. 1</div><div><strong>1:1 Diagnóstico com Rodrigo</strong><div class="card-d" style="margin-top:4px">Pauta completa: carteira, contas estratégicas, segmentos, dores, visão de meta. Marketing participa. Output: mapa de carteira + segmentos prioritários.</div></div></div>
+    <div class="ag-item"><div class="ag-wk">Sem. 1</div><div><strong>1:1 Diagnóstico com Herik</strong><div class="card-d" style="margin-top:4px">Mesmo formato. Atenção para identificar sobreposição ou complementaridade com a carteira de Rodrigo.</div></div></div>
+    <div class="ag-item"><div class="ag-wk">Sem. 1</div><div><strong>Receber organograma comercial da diretoria</strong><div class="card-d" style="margin-top:4px">Essencial para entender hierarquia e responsabilidades. Aguinaldo é o responsável por providenciar.</div></div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-t">Semana 2 — Diagnóstico público</div>
+    <div class="ag-item"><div class="ag-wk">Sem. 2</div><div><strong>1:1 Diagnóstico com Andreia</strong><div class="card-d" style="margin-top:4px">Foco: como vai atuar, rede de relacionamentos, órgãos estratégicos, estratégia de entrada. Output: clareza sobre modelo de atuação.</div></div></div>
+    <div class="ag-item"><div class="ag-wk">Sem. 2</div><div><strong>1:1 Diagnóstico com Luiz</strong><div class="card-d" style="margin-top:4px">Foco: ferramentaria atual de licitações, editais em curso, carteira pública ativa. Output: inventário completo + ferramentas a avaliar.</div></div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-t">Semanas 3 e 4 — Estruturação</div>
+    <div class="ag-item"><div class="ag-wk">Sem. 3</div><div><strong>Consolidar diagnósticos e construir metas com cada account</strong><div class="card-d" style="margin-top:4px">Reunião de devolução: "com base no que você me disse, aqui está a proposta de meta e processo." Co-construção.</div></div></div>
+    <div class="ag-item"><div class="ag-wk">Sem. 3</div><div><strong>Configurar Asana para o setor privado</strong><div class="card-d" style="margin-top:4px">Criar projeto com etapas de pipeline definidas. Rodrigo e Herik precisam estar na ferramenta antes de começar a prospectar.</div></div></div>
+    <div class="ag-item"><div class="ag-wk">Sem. 4</div><div><strong>Avaliar e decidir ferramenta de licitações</strong><div class="card-d" style="margin-top:4px">Luiz e Andreia testam 2–3 opções. Decisão em conjunto com diretoria. Critério: cobertura dos órgãos prioritários.</div></div></div>
+    <div class="ag-item"><div class="ag-wk">Sem. 4</div><div><strong>Primeira reunião mensal de pipeline</strong><div class="card-d" style="margin-top:4px">Todos os accounts + diretoria + marketing. Primeira vez com pauta formal de KPIs. Benchmark zero — linha de base para os próximos meses.</div></div></div>
+  </div>
+
+  <div class="hl c">
+    <div class="hl-lbl">Uma semana antes de cada reunião de diagnóstico</div>
+    <div style="font-size:14px;color:var(--g700)">Enviar ao account a pauta com as perguntas. Não como questionário a responder — como aviso do que vamos conversar. Isso respeita o tempo deles e garante que a conversa seja mais aprofundada.</div>
+  </div>
+</section>
+
+<!-- PRÉ-VENDAS -->
+<section class="sec" id="sec-prevendas">
+  <div class="ey">Apoio e Integração</div>
+  <div class="ttl">Pré-Vendas</div>
+  <div class="sub">O elo entre o que o comercial promete e o que a técnica entrega. Pré-vendas não é suporte — é parte do processo de venda, presente em todas as fases.</div>
+
+  <div class="hl" style="background:linear-gradient(135deg,var(--blue-soft) 0%,var(--cyan-soft) 100%);border-color:rgba(77,164,199,.3)">
+    <div class="hl-lbl">Papel do Pré-Vendas</div>
+    <div style="font-size:15px;color:var(--blue-dark);line-height:1.7">O pré-vendas é o elo essencial entre o benefício de negócio — que o account apresenta — e o conhecimento técnico que converte dúvida em decisão. Sem ele, a venda para no primeiro "como isso funciona?". Com ele, a conversa avança.</div>
+  </div>
+
+  <!-- TRÊS ESPECIALISTAS -->
+  <div class="g3" style="margin-bottom:22px">
+
+    <!-- Alexandre -->
+    <div style="background:var(--surface);border:1px solid var(--g200);border-radius:var(--r);overflow:hidden;box-shadow:0 2px 8px rgba(14,29,170,.07)">
+      <div style="background:var(--blue);padding:16px 18px 14px">
+        <div style="font-size:18px;font-weight:700;color:#fff">Alexandre</div>
+        <div style="font-size:11px;color:rgba(255,255,255,.65);margin-top:3px">Pré-Vendas — Colaboração</div>
+      </div>
+      <div style="padding:16px 18px">
+        <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px">
+          <span class="bdg bdg-c">Colaboração</span>
+          <span class="bdg bdg-b">Apresentações</span>
+          <span class="bdg bdg-b">Demos</span>
+        </div>
+        <ul class="chk">
+          <li>Suporte técnico em todas as fases do ciclo comercial</li>
+          <li>Apresentações e demos de soluções de Colaboração</li>
+          <li>Apoio na elaboração de propostas técnicas</li>
+          <li>Participação em reuniões com decisores de TI</li>
+          <li>Elo entre benefício de negócio e especificação técnica</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- João -->
+    <div style="background:var(--surface);border:1px solid var(--g200);border-radius:var(--r);overflow:hidden;box-shadow:0 2px 8px rgba(77,164,199,.1)">
+      <div style="background:var(--cyan);padding:16px 18px 14px">
+        <div style="font-size:18px;font-weight:700;color:#fff">João</div>
+        <div style="font-size:11px;color:rgba(255,255,255,.75);margin-top:3px">Pré-Vendas — PABX · Contact Center · Zoom</div>
+      </div>
+      <div style="padding:16px 18px">
+        <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px">
+          <span class="bdg bdg-c">PABX</span>
+          <span class="bdg bdg-c">Contact Center</span>
+          <span class="bdg bdg-c">Zoom</span>
+        </div>
+        <ul class="chk">
+          <li>Demonstrações técnicas de PABX e Contact Center</li>
+          <li>Suporte em avaliações de plataformas Zoom</li>
+          <li>Apoio técnico em reuniões com áreas de TI e Operações</li>
+          <li>Elaboração de arquitetura de solução para propostas</li>
+          <li>Resposta técnica a objeções durante o ciclo de venda</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Anderson -->
+    <div style="background:var(--surface);border:1px solid var(--g200);border-radius:var(--r);overflow:hidden;box-shadow:0 2px 8px rgba(15,157,88,.1)">
+      <div style="background:var(--green);padding:16px 18px 14px">
+        <div style="font-size:18px;font-weight:700;color:#fff">Anderson</div>
+        <div style="font-size:11px;color:rgba(255,255,255,.75);margin-top:3px">Pré-Vendas — Redes · Infra · Cibersegurança</div>
+      </div>
+      <div style="padding:16px 18px">
+        <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px">
+          <span class="bdg bdg-g">Redes</span>
+          <span class="bdg bdg-g">Infraestrutura</span>
+          <span class="bdg bdg-r">Cibersegurança</span>
+        </div>
+        <ul class="chk">
+          <li>Suporte técnico em projetos de redes e infraestrutura</li>
+          <li>Demonstrações e POC de soluções de cibersegurança</li>
+          <li>Participação em assessments técnicos de clientes</li>
+          <li>Apoio na construção de arquitetura para propostas complexas</li>
+          <li>Suporte ao setor público em licitações técnicas de infra</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- COMO FUNCIONA A PARCERIA -->
+  <div class="card">
+    <div class="card-t">Como o pré-vendas se integra ao ciclo comercial</div>
+    <div style="display:flex;align-items:flex-start;gap:0;margin-top:14px;overflow-x:auto">
+
+      <div style="flex:1;min-width:130px;text-align:center;padding:0 6px">
+        <div style="background:var(--blue-soft);border:1px solid rgba(14,29,170,.15);border-radius:8px;padding:12px 8px;margin-bottom:8px">
+          <div style="font-size:16px;margin-bottom:4px">🎯</div>
+          <div style="font-size:11px;font-weight:700;color:var(--blue)">Qualificação</div>
+        </div>
+        <div style="font-size:11px;color:var(--g500);line-height:1.4">Pré-vendas valida viabilidade técnica da oportunidade</div>
+      </div>
+
+      <div style="align-self:flex-start;padding-top:22px;color:var(--g300);font-size:18px;flex-shrink:0">→</div>
+
+      <div style="flex:1;min-width:130px;text-align:center;padding:0 6px">
+        <div style="background:var(--cyan-soft);border:1px solid rgba(77,164,199,.2);border-radius:8px;padding:12px 8px;margin-bottom:8px">
+          <div style="font-size:16px;margin-bottom:4px">🔍</div>
+          <div style="font-size:11px;font-weight:700;color:#3A8AAF">Diagnóstico</div>
+        </div>
+        <div style="font-size:11px;color:var(--g500);line-height:1.4">Apoia na levantamento técnico do ambiente do cliente</div>
+      </div>
+
+      <div style="align-self:flex-start;padding-top:22px;color:var(--g300);font-size:18px;flex-shrink:0">→</div>
+
+      <div style="flex:1;min-width:130px;text-align:center;padding:0 6px">
+        <div style="background:var(--blue-soft);border:1px solid rgba(14,29,170,.15);border-radius:8px;padding:12px 8px;margin-bottom:8px">
+          <div style="font-size:16px;margin-bottom:4px">📊</div>
+          <div style="font-size:11px;font-weight:700;color:var(--blue)">Proposta</div>
+        </div>
+        <div style="font-size:11px;color:var(--g500);line-height:1.4">Constrói a arquitetura técnica e valida escopo com o account</div>
+      </div>
+
+      <div style="align-self:flex-start;padding-top:22px;color:var(--g300);font-size:18px;flex-shrink:0">→</div>
+
+      <div style="flex:1;min-width:130px;text-align:center;padding:0 6px">
+        <div style="background:var(--cyan-soft);border:1px solid rgba(77,164,199,.2);border-radius:8px;padding:12px 8px;margin-bottom:8px">
+          <div style="font-size:16px;margin-bottom:4px">🎤</div>
+          <div style="font-size:11px;font-weight:700;color:#3A8AAF">Apresentação</div>
+        </div>
+        <div style="font-size:11px;color:var(--g500);line-height:1.4">Apresenta e demonstra a solução junto ao account para o cliente</div>
+      </div>
+
+      <div style="align-self:flex-start;padding-top:22px;color:var(--g300);font-size:18px;flex-shrink:0">→</div>
+
+      <div style="flex:1;min-width:130px;text-align:center;padding:0 6px">
+        <div style="background:var(--green-soft);border:1px solid rgba(15,157,88,.2);border-radius:8px;padding:12px 8px;margin-bottom:8px">
+          <div style="font-size:16px;margin-bottom:4px">✅</div>
+          <div style="font-size:11px;font-weight:700;color:var(--green)">Fechamento</div>
+        </div>
+        <div style="font-size:11px;color:var(--g500);line-height:1.4">Remove objeções técnicas que bloqueiam a decisão</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- KPIs PRÉ-VENDAS -->
+  <div class="card">
+    <div class="card-t">KPIs de acompanhamento — Pré-Vendas</div>
+    <div class="card-d" style="margin-bottom:14px">Pré-vendas precisa de métricas próprias. Não para cobrar, mas para visibilidade da participação e impacto no ciclo.</div>
+    <table class="tbl">
+      <thead>
+        <tr>
+          <th>Indicador</th>
+          <th>Especialista</th>
+          <th>Frequência</th>
+          <th>Meta referência</th>
+          <th>Onde medir</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Oportunidades apoiadas no mês</td>
+          <td><span class="bdg bdg-b">Alexandre</span> <span class="bdg bdg-c">João</span> <span class="bdg bdg-g">Anderson</span></td>
+          <td>Mensal</td>
+          <td>100% das oportunidades com proposta técnica</td>
+          <td>Asana / CIGAM</td>
+        </tr>
+        <tr>
+          <td>Demos realizadas / mês</td>
+          <td><span class="bdg bdg-b">Alexandre</span> <span class="bdg bdg-c">João</span> <span class="bdg bdg-g">Anderson</span></td>
+          <td>Mensal</td>
+          <td>A definir por especialidade</td>
+          <td>Registro no Asana</td>
+        </tr>
+        <tr>
+          <td>Taxa de oportunidades com pré-vendas que avançaram para proposta</td>
+          <td>Todos</td>
+          <td>Trimestral</td>
+          <td>≥ 70%</td>
+          <td>Asana → CIGAM</td>
+        </tr>
+        <tr>
+          <td>Taxa de fechamento em oportunidades com suporte técnico vs. sem</td>
+          <td>Todos</td>
+          <td>Trimestral</td>
+          <td>Benchmark zero no Q1</td>
+          <td>CIGAM</td>
+        </tr>
+        <tr>
+          <td>Tempo médio de resposta a solicitação do account</td>
+          <td>Todos</td>
+          <td>Mensal</td>
+          <td>≤ 24h úteis</td>
+          <td>Asana (data criação → data resposta)</td>
+        </tr>
+        <tr>
+          <td>NPS interno — avaliação do account sobre suporte do pré-vendas</td>
+          <td>Todos</td>
+          <td>Trimestral</td>
+          <td>≥ 8,0</td>
+          <td>Formulário interno</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- REGRAS DE ACIONAMENTO -->
+  <div class="g2">
+    <div class="hl">
+      <div class="hl-lbl">Quando acionar o pré-vendas</div>
+      <ul class="chk" style="margin-top:8px">
+        <li>Oportunidade entra em fase de Diagnóstico no Asana</li>
+        <li>Cliente solicita demo ou prova de conceito (POC)</li>
+        <li>Proposta envolve arquitetura técnica ou especificação</li>
+        <li>Reunião com decisor técnico (CTO, CISO, Infra Lead)</li>
+        <li>Objeção técnica bloqueando o avanço da venda</li>
+        <li>Licitação pública com requisitos técnicos detalhados</li>
+      </ul>
+    </div>
+    <div class="hl c">
+      <div class="hl-lbl">Como o account solicita suporte</div>
+      <ul class="chk" style="margin-top:8px">
+        <li>Card no Asana com tag <strong>[PRÉ-VENDAS]</strong> + especialista responsável</li>
+        <li>Briefing mínimo: conta, estágio, produto envolvido, data da reunião</li>
+        <li>Prazo mínimo: 48h antes da reunião (exceto urgências)</li>
+        <li>Feedback após a reunião no mesmo card — o que avançou</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- MATRIZ DE ESPECIALIDADE -->
+  <div class="card">
+    <div class="card-t">Matriz de especialidade × eixo de produto</div>
+    <div style="margin-top:14px;overflow-x:auto">
+      <table class="tbl">
+        <thead>
+          <tr>
+            <th>Eixo de Produto</th>
+            <th>Especialista</th>
+            <th>Tipo de suporte</th>
+            <th>Público principal</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="bdg bdg-c">Colaboração</span></td>
+            <td><strong>Alexandre</strong></td>
+            <td>Apresentação, demo, proposta técnica, reunião com cliente</td>
+            <td>CIO, TI, RH, Operações</td>
+          </tr>
+          <tr>
+            <td><span class="bdg bdg-c">PABX · Contact Center · Zoom</span></td>
+            <td><strong>João</strong></td>
+            <td>Demo de plataforma, arquitetura de solução, avaliação técnica</td>
+            <td>TI, Call Center, Operações</td>
+          </tr>
+          <tr>
+            <td><span class="bdg bdg-g">Infraestrutura e Redes</span></td>
+            <td><strong>Anderson</strong></td>
+            <td>Assessment técnico, POC, arquitetura de projeto</td>
+            <td>CTO, Infra Lead, Engenharia</td>
+          </tr>
+          <tr>
+            <td><span class="bdg bdg-r">Cibersegurança</span></td>
+            <td><strong>Anderson</strong></td>
+            <td>Demo de ferramentas, avaliação de maturidade, proposta técnica</td>
+            <td>CISO, CTO, Diretoria</td>
+          </tr>
+          <tr>
+            <td><span class="bdg bdg-b">Serviços (MSP)</span></td>
+            <td>Conforme escopo</td>
+            <td>Definição de SLA, escopo técnico de contrato</td>
+            <td>COO, Gerente de Infra</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<script>
+(function(){
+  var items = document.querySelectorAll('.sb-item');
+  var sections = document.querySelectorAll('.sec');
+
+  function activate(id){
+    sections.forEach(function(s){ s.classList.remove('on'); });
+    items.forEach(function(i){ i.classList.remove('on'); });
+    var sec = document.getElementById('sec-' + id);
+    if(sec){ sec.classList.add('on'); }
+    items.forEach(function(i){
+      if(i.getAttribute('data-sec') === id){ i.classList.add('on'); }
+    });
+    document.getElementById('main').scrollTop = 0;
+    window.scrollTo(0,0);
+  }
+
+  items.forEach(function(item){
+    item.addEventListener('click', function(){
+      var id = this.getAttribute('data-sec');
+      if(id){ activate(id); }
+    });
+  });
+})();
+</script>
+</body>
+</html>
